@@ -7,27 +7,24 @@ def aproximate(i, list, list2):
         cord = []   
         aprx = i**(1/(3**n))  
         for val in range(1, n):
-            #print('Im here')
             cord.append(int(aprx**(3**val)))
         a = set(list)
         b = set(cord)
         result = a.union(b)
-        #print(i, result,a,b)
         if result==a: 
-            #print('now im here')
             temp = aprx
         else:
              out = 1
         if out == 1:
             break
         if n > list2[0]: 
-            #print('and im finally here')
             list2[0] = n
             temp = float(temp)
             list2[1] = temp       
         n += 1     
 try:
     theta = [0,0]
+    Mill_primes = []
     primes = [2]
     i = 3 
     while True:   
@@ -43,5 +40,8 @@ try:
            primes.append(i)
            aproximate(i, primes, theta)
         i+=1
-finally:
+finally:     
     print('Theta is aproximetly equal to: ',theta[1])
+    print(theta[0],' first Mills primes are: ')
+    for val in range(1,theta[0]+1):
+        print(int(theta[1]**(3**val)))
